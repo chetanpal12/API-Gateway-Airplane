@@ -4,5 +4,6 @@ const path = require('path');
 dotenv.config({path:path.join(__dirname,'../../.env')}); 
 
 module.exports = {
-    PORT: process.env.PORT
+    PORT: process.env.PORT,
+    SALT_ROUNDS:process.env.SALT_ROUNDS
 }
