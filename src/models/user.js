@@ -42,5 +42,5 @@ User.beforeCreate(function encrypt(user){
   user.password=encyptedPassword;
 })
 
-  return User;
+  return User; 
 };

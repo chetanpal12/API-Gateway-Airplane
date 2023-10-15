@@ -22,6 +22,29 @@ async function create(req,res){
         return res.status(error.statusCode).json({ErrorResponce});
     }
 }
+
+async function signin(req, res) {
+    console.log("inside-controller just starting")
+    try {
+        const user = await UserService.signin({
+            email: req.body.email,
+            password: req.body.password
+        });
+        console.log("inside-controller at the end")
+        SuccessResponce.data = user;
+        return res
+                .status(StatusCodes.CREATED)
+                .json(SuccessResponce);
+    } catch(error) {
+        console.log(error);
+        ErrorResponce.error = error;
+        return res
+                .status(error.statusCode)
+                .json(ErrorResponce);
+    }
+}
+
 module.exports={
-    create
+    create,
+    signin
 }
