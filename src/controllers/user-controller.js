@@ -13,6 +13,7 @@ async function create(req,res){
             email:req.body.email,
             password:req.body.password
         });
+        console.log("inside-controller",user)
         SuccessResponce.data=user;
         return res.status(StatusCodes.CREATED).json({SuccessResponce})
         
